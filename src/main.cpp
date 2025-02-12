@@ -1,25 +1,21 @@
 #include <iostream>
+#include <cstring>
+#include "constants.h"
+#include "Visit.h"
+#include "User.h"
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+int INT_SIZE = sizeof(int);
+int CHAR_SIZE = sizeof(char);
+
 int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the
-    // <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    std::string d = "12022025";
+    char date[8];
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code.
-        // We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/>
-        // breakpoint for you, but you can always add more by pressing
-        // <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
-    }
+    Visit v1 = Visit(1, strcpy(date, d.c_str()), "1200", "1400");
+    std::cout << v1;
 
-    return 0;
+    User u1 = User(1, "0123456789", "Utochkina Yana", "12032006");
+    std::cout << u1;
+
+    std::cout << INT_SIZE << CHAR_SIZE << std::endl;
 }
-
-// TIP See CLion help at <a
-// href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
-//  Also, you can try interactive lessons for CLion by selecting
-//  'Help | Learn IDE Features' from the main menu.
