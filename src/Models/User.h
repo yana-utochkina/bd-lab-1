@@ -1,4 +1,4 @@
-#include "constants.h"
+#include "../constants.h"
 
 #ifndef USER_H
 #define USER_H
@@ -11,7 +11,12 @@ struct User {
     char fullName[FULLNAME_SIZE];
     char birthDay[DATE_SIZE]; // DDMMYYYY
 
-    User(int id, char phone[], char fullName[], char birthDay[]);
+    User(int id, char* phone, char* fullName, char* birthDay);
+    User(User& user) = delete;
+    User(User&& user) = delete;
+    User operator=(User& user) = delete;
+    User& operator=(User&& user) = delete;
+
     friend std::ostream& operator<<(std::ostream& os, const User& user);
 };
 

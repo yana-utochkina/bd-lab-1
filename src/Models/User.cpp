@@ -1,8 +1,8 @@
 #include "User.h"
-#include "constants.h"
-#include "functions.h"
+#include "../constants.h"
+#include "../functions.h"
 
-User::User(int id, char phone[], char fullName[], char birthDay[]) {
+User::User(int id, char* phone, char* fullName, char* birthDay) {
   this->id = id;
   for (int i = 0; i < PHONE_SIZE; i++) {
     this->phone[i] = phone[i];

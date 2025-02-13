@@ -1,5 +1,5 @@
 #include "Visit.h"
-#include "functions.h"
+#include "../functions.h"
 
 Visit::Visit(int id, char* date, char* startTime, char* endTime) {
     this->id = id;

@@ -1,4 +1,4 @@
-#include "constants.h"
+#include "../constants.h"
 
 #ifndef VISIT_H
 #define VISIT_H
@@ -12,6 +12,10 @@ struct Visit {
     char endTime[TIME_SIZE]; // HHMM
 
     Visit(int id, char* date, char* startTime, char* endTime);
+    Visit(Visit& other) = delete;
+    Visit(Visit&& other) = delete;
+    Visit operator=(Visit& other) = delete;
+    Visit& operator=(Visit&& other) = delete;
     friend std::ostream& operator<<(std::ostream& os, const Visit& v);
 };
 

@@ -4,7 +4,9 @@ project(src)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(src main.cpp
-        Visit.cpp
-        User.cpp
+        Models/Visit.cpp
+        Models/User.cpp
         functions.cpp
+        Models/GarbageCollector.cpp
+        Models/IndexTable.cpp
 )
