@@ -9,4 +9,5 @@ add_executable(src main.cpp
         functions.cpp
         Models/GarbageCollector.cpp
         Models/IndexTable.cpp
+        files.cpp
 )

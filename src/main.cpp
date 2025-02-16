@@ -6,19 +6,27 @@
 #include "files.h"
 #include "Models/GarbageCollector.h"
 #include "Models/IndexTable.h"
+#include "functions.h"
+
 
 int main() {
-    //GarbageCollector u_gc = GarbageCollector(USERS_GC_PATH);
-    //GarbageCollector s_gc = GarbageCollector(SUBS_GC_PATH);
-    //IndexTable u_ind = IndexTable(USERS_IND_PATH);
+    {
+        GarbageCollector* u_gc = new GarbageCollector(USERS_GC_PATH);
+        //GarbageCollector s_gc = GarbageCollector(SUBS_GC_PATH);
+        IndexTable* u_ind = new IndexTable(USERS_IND_PATH);
 
-    // Visit v1 = Visit(1, "13022025", "1200", "1400");
-    // std::cout << v1;
-    //
-    // User u1 = User(1, "0123456789", "Utochkina Yana", "12032006");
-    // std::cout << u1;
-    //
-    // std::cout << INT_SIZE << CHAR_SIZE << std::endl;
+        std::cout << u_ind->indexMap.size() << std::endl;
+        std::cout << u_gc->address.size() << std::endl;
 
+        std::string phone = "0123456789";
+        std::string fullName = "Nastya T";
+        std::string birthDate = "13052006";
+        User* u1 = new User(0, 0, 3, phone.data(), fullName.data(), birthDate.data());
+
+        insert_m(u_ind, u_gc, u1);
+        ut_m(std::cout);
+        delete u_ind;
+        delete u_gc;
+    }
 
 }

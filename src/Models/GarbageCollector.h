@@ -18,6 +18,7 @@ struct GarbageCollector {
     int pop_first();
     int remove(int _address);
 
+    bool isEmpty();
 };
 
 

@@ -1,7 +1,19 @@
 #include "Visit.h"
 #include "../functions.h"
 
-Visit::Visit(int id, char* date, char* startTime, char* endTime) {
+Visit::Visit(int nextAddress, int id, const char* date, const char* startTime, const char* endTime) {
+    this->nextAddress = nextAddress;
+    this->id = id;
+    for (int i = 0; i < DATE_SIZE; i++) {
+        this->date[i] = date[i];
+    }
+    for (int i = 0; i < TIME_SIZE; i++) {
+        this->startTime[i] = startTime[i];
+        this->endTime[i] = endTime[i];
+    }
+}
+
+Visit::Visit(const int id,const char* date, const char* startTime, const char* endTime) {
     this->id = id;
     for (int i = 0; i < DATE_SIZE; i++) {
         this->date[i] = date[i];

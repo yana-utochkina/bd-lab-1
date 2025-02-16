@@ -11,4 +11,6 @@ const std::string SUBS_FL_PATH = "../../files/Subs.fl";
 const std::string USERS_GC_PATH = "../../files/Users.gc";
 const std::string SUBS_GC_PATH = "../../files/Subs.gc";
 
+bool isEmptyFile(std::string filePath);
+
 #endif //FILES_H

@@ -1,29 +1,40 @@
 #include "GarbageCollector.h"
 #include <algorithm>
 
+#include "../files.h"
+
 GarbageCollector::GarbageCollector(const std::string& fileName) {
   this->fileName = fileName;
-  std::fstream file;
-  file.open(fileName, std::ios::binary | std::ios::in);
 
-  int temp;
-  while (file) {
-    file.read(reinterpret_cast<char*>(&temp), sizeof(int));
-    this->address.push_back(temp);
+  if (!isEmptyFile(fileName)) {
+    std::fstream file;
+    file.open(fileName, std::ios::binary | std::ios::in);
+
+    if (!file.is_open()) {
+      throw std::runtime_error("Could not open file " + fileName);
+    }
+
+    int temp;
+    while (file) {
+      file.read(reinterpret_cast<char*>(&temp), sizeof(int));
+      this->address.push_back(temp);
+    }
+    file.close();
   }
-
-  file.close();
 }
 
 GarbageCollector::~GarbageCollector() {
   std::fstream file;
   file.open(fileName, std::ios::binary | std::ios::out);
 
+  if (!file.is_open()) {
+    throw std::runtime_error("Could not open file " + fileName);
+  }
+
   int size = this->address.size();
   for (int i = 0; i < size; i++) {
     file.write(reinterpret_cast<char*>(&this->address.at(i)), sizeof(int));
   }
-  file.flush();
   file.close();
 }
 
@@ -48,4 +59,8 @@ int GarbageCollector::remove(int _address) {
     this->address.erase(it);
   }
   return _address;
+}
+
+bool GarbageCollector::isEmpty() {
+  return this->address.empty();
 }
