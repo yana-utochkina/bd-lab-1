@@ -21,6 +21,4 @@ struct GarbageCollector {
     bool isEmpty();
 };
 
-
-
 #endif //GARBAGECOLLECTOR_H

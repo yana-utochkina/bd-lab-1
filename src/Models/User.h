@@ -1,9 +1,9 @@
-#include "../constants.h"
-
 #ifndef USER_H
 #define USER_H
 
 #include <iostream>
+
+#include "../constants.h"
 
 struct User {
     int firstVisitAdress;
@@ -25,7 +25,5 @@ struct User {
     void Save(std::fstream& file);
     void Load(std::fstream& file);
 };
-
-
 
 #endif //USER_H

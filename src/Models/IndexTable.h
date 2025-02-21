@@ -21,6 +21,4 @@ struct IndexTable {
     void remove(int key);
 };
 
-
-
 #endif //INDEXTABLE_H
