@@ -120,8 +120,8 @@ void Menu::insertS() const
 {
     int userId, visitId;
     std::string data, startTime, endTime;
-    std::cin >> userId >> data >> startTime >> endTime;
-    Visit* visit = new Visit(userId, data.data(), startTime.data(), endTime.data());
+    std::cin >> userId >> visitId >> data >> startTime >> endTime;
+    Visit* visit = new Visit(visitId, data.data(), startTime.data(), endTime.data());
     insert_s(this->user_ind, this->visit_gc, visit, userId);
     delete visit;
     std::cout << "Successfully added" << std::endl;
